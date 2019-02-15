@@ -1,8 +1,5 @@
 import {ToDoManager} from './ToDoManger';
-
-var main = function() {
+(function() {
     const toDoManager = new ToDoManager();
     toDoManager.init();
- }
-
- main();
+ })();

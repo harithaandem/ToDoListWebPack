@@ -43,7 +43,7 @@ function ToDoActionBar(descriptionToBeAdded, timeStamp) {
     ToDoActionBar.prototype.deleteSelected=function(toDoManager) {
         for(var toDoItemTimeStamp in toDoManager.toDoListArray) {
             var selectedParentElement = document.querySelector(`[toDoId="${toDoItemTimeStamp}"]`);
-            if(selectedParentElement.querySelector('[data-check="check"]').checked) {
+            if(selectedParentElement.querySelector('[data-type="check"]').checked) {
                 delete toDoManager.toDoListArray[toDoItemTimeStamp];   
             }
         }

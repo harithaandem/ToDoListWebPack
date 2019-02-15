@@ -51,6 +51,17 @@
                         var updateFromPrompt = prompt("enter to update"," ");
                         toDoManager.toDoListArray[toDoItemId].toDoText+=updateFromPrompt;
                     break;
+                    case "check":
+                    switch(toDoManager.toDoListArray[toDoItemId].toDoChecked){
+                        case false:
+                        toDoManager.toDoListArray[toDoItemId].toDoChecked=true;
+                        break;
+                        case true:
+                        toDoManager.toDoListArray[toDoItemId].toDoChecked=false;
+                        break;
+                    }
+                        break;
+                    
                     default: break;
                 }
                 toDoManager.render();

@@ -14,15 +14,13 @@ function ToDoManager() {
 
     ToDoManager.prototype.render=function() {
         var toDoContainer = document.getElementById("bottom_div");
-        var hiddenDiv = document.getElementById("hidden_div");
         toDoContainer.innerHTML = "";
-        toDoContainer.appendChild(hiddenDiv);
-
         for(var timeStamp in this.toDoListArray) {
             const toDoItem = new ToDoItem();
             var descriptionToBeAdded = this.toDoListArray[timeStamp].toDoText;
             var clone=toDoItem.createFragment(timeStamp,descriptionToBeAdded);
             document.querySelector(".bottom").appendChild(clone);
+
             var selectedElement = clone.querySelector('[data-list="list"]');
             if(this.toDoListArray[timeStamp].toDoStatus) {
                 selectedElement.classList.remove('list');
@@ -31,6 +29,10 @@ function ToDoManager() {
             else {
                 selectedElement.classList.remove('list_changed'); 
                 selectedElement.classList.add('list');  
+            }
+            if(this.toDoListArray[timeStamp].toDoChecked){
+               var selectedCheckBox=clone.querySelector('[data-type="check"]');
+               selectedCheckBox.setAttribute("checked","checked");
             }
         }
     }
